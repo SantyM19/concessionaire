@@ -15,3 +15,30 @@ Yamaha YBR
 Honda Titan
 */
 
+var myCar ={ 
+    Marca: "Peugeot",
+    Modelo: 206,
+    Puertas: 4 ,
+    Precio: "$200.000,00"
+};
+
+var myBike ={ 
+    Marca: "Honda",
+    Modelo: "Titan",
+    Cilindrada: "125cc" ,
+    Precio: "$60.000,00"
+};
+
+var myCar ={ 
+    Marca: "Peugeot",
+    Modelo: 206,
+    Puertas: 5 ,
+    Precio: "$250.000,00"
+};
+
+var myBike ={ 
+    Marca: "Yamaha",
+    Modelo: "YBR",
+    Cilindrada: "160cc" ,
+    Precio: "$80.500,50"
+};
