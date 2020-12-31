@@ -15,28 +15,27 @@ Yamaha YBR
 Honda Titan
 */
 
-function car(marca,modelo,puertas,precio){
-    this.marca = marca
-    this.modelo=modelo
-    this.puertas=puertas
-    this.precio=precio
+class vehicle{
+    constructor(trademark,model,price){
+        this.trademark = trademark
+        this.model=model
+        this.price=price
+    }
 }
 
-car.prototype.run=function(){
-    console.log(`RunWey ${this.marca} ${this.modelo}`)
+class car extends vehicle{
+    constructor(trademark,model,doors,price){
+        super(trademark,model,price);                // Inhetirance
+        this.doors=doors;                            // New attribute
+    }
 }
 
-function bike(marca,modelo,cilindrada,precio){
-    this.marca = marca
-    this.modelo=modelo
-    this.cilindrada=cilindrada
-    this.precio=precio
+class bike extends vehicle{
+    constructor(trademark,model,displacement,price){
+        super(trademark,model,price);                // Inhetirance
+        this.displacement=displacement;              // New attribute
+    }
 }
-
-bike.prototype.run=function(){
-    console.log(`RunWey ${this.marca} ${this.modelo}`)
-}
-
 
 var car1= new car( "Peugeot",206, 4 ,"$200.000,00")
 var bike1 = new bike("Honda","Titan","125cc" ,"$60.000,00")
