@@ -21,23 +21,33 @@ class vehicle{
         this.model=model
         this.price=price
     }
+    getPrice(){
+        console.log(`$ ${this.price}`);
+    }
 }
 
 class car extends vehicle{
     constructor(trademark,model,doors,price){
-        super(trademark,model,price);                // Inhetirance
-        this.doors=doors;                            // New attribute
+        super(trademark,model,price)                // Inhetirance
+        this.doors=doors                            // New attribute
     }
 }
 
-class bike extends vehicle{
+class motorcycle extends vehicle{
     constructor(trademark,model,displacement,price){
-        super(trademark,model,price);                // Inhetirance
-        this.displacement=displacement;              // New attribute
+        super(trademark,model,price)                // Inhetirance
+        this.displacement=displacement              // New attribute
+    }
+
+    getDisplacement(){
+        console.log(`${this.displacement}cc`);
     }
 }
 
-var car1= new car( "Peugeot",206, 4 ,"$200.000,00")
-var bike1 = new bike("Honda","Titan","125cc" ,"$60.000,00")
-var car2= new car( "Peugeot",208, 5 ,"$250.000,00")
-var bike2 = new bike("Yamaha","YBR","160cc" ,"$80.500,50")
+var car1= new car( "Peugeot","206", 4 ,200000.00)
+var motorcycle1 = new motorcycle("Honda","Titan",125 ,60000.00)
+var car2= new car( "Peugeot","208", 5 ,250000.00)
+var motorcycle2 = new motorcycle("Yamaha","YBR",160 ,80500.50)
+
+// Object Array
+var vehicles=[car1,motorcycle1,car2,motorcycle2]
