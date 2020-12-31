@@ -15,30 +15,30 @@ Yamaha YBR
 Honda Titan
 */
 
-var myCar ={ 
-    Marca: "Peugeot",
-    Modelo: 206,
-    Puertas: 4 ,
-    Precio: "$200.000,00"
-};
+function car(marca,modelo,puertas,precio){
+    this.marca = marca
+    this.modelo=modelo
+    this.puertas=puertas
+    this.precio=precio
+}
 
-var myBike ={ 
-    Marca: "Honda",
-    Modelo: "Titan",
-    Cilindrada: "125cc" ,
-    Precio: "$60.000,00"
-};
+car.prototype.run=function(){
+    console.log(`RunWey ${this.marca} ${this.modelo}`)
+}
 
-var myCar ={ 
-    Marca: "Peugeot",
-    Modelo: 206,
-    Puertas: 5 ,
-    Precio: "$250.000,00"
-};
+function bike(marca,modelo,cilindrada,precio){
+    this.marca = marca
+    this.modelo=modelo
+    this.cilindrada=cilindrada
+    this.precio=precio
+}
 
-var myBike ={ 
-    Marca: "Yamaha",
-    Modelo: "YBR",
-    Cilindrada: "160cc" ,
-    Precio: "$80.500,50"
-};
+bike.prototype.run=function(){
+    console.log(`RunWey ${this.marca} ${this.modelo}`)
+}
+
+
+var car1= new car( "Peugeot",206, 4 ,"$200.000,00")
+var bike1 = new bike("Honda","Titan","125cc" ,"$60.000,00")
+var car2= new car( "Peugeot",208, 5 ,"$250.000,00")
+var bike2 = new bike("Yamaha","YBR","160cc" ,"$80.500,50")
