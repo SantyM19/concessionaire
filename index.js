@@ -16,38 +16,85 @@ Honda Titan
 */
 
 class vehicle{
-    constructor(trademark,model,price){
-        this.trademark = trademark
+    constructor(type,trademark,model,price){
+        this.type = type                                 //Type Vehicle
+        this.trademark = trademark  
         this.model=model
         this.price=price
     }
     getPrice(){
-        console.log(`$ ${this.price}`);
+        return`$ ${this.price}`
     }
 }
 
 class car extends vehicle{
-    constructor(trademark,model,doors,price){
-        super(trademark,model,price)                // Inhetirance
-        this.doors=doors                            // New attribute
+    constructor(type,trademark,model,doors,price){
+        super(type,trademark,model,price)                // Inhetirance
+        this.doors=doors                                 // New attribute
     }
 }
 
 class motorcycle extends vehicle{
-    constructor(trademark,model,displacement,price){
-        super(trademark,model,price)                // Inhetirance
-        this.displacement=displacement              // New attribute
+    constructor(type,trademark,model,displacement,price){
+        super(type,trademark,model,price)                // Inhetirance
+        this.displacement=displacement                   // New attribute
     }
 
     getDisplacement(){
-        console.log(`${this.displacement}cc`);
+        return`${this.displacement}cc`
     }
 }
 
-var car1= new car( "Peugeot","206", 4 ,200000.00)
-var motorcycle1 = new motorcycle("Honda","Titan",125 ,60000.00)
-var car2= new car( "Peugeot","208", 5 ,250000.00)
-var motorcycle2 = new motorcycle("Yamaha","YBR",160 ,80500.50)
+const TYPE1="car"
+const TYPE2="motorcycle"
+
+var car1= new car( TYPE1,"Peugeot","206  ", 4 ,200000.00)
+var motorcycle1 = new motorcycle(TYPE2,"Honda  ","Titan",125 ,60000.00)
+var car2= new car( TYPE1,"Peugeot","208  ", 5 ,250000.00)
+var motorcycle2 = new motorcycle(TYPE2,"Yamaha ","YBR  ",160 ,80500.50)
 
 // Object Array
 var vehicles=[car1,motorcycle1,car2,motorcycle2]
+
+//Signal 
+function signal(){
+    console.log("=============================")
+}
+
+//Showing Inventory
+vehicles.forEach(function(vehicles){
+    var other
+    if (vehicles.type==TYPE1) {
+        other = "Puertas: " + vehicles.doors + "       "
+    }
+    else{
+        other = "Cilindrada: " + vehicles.getDisplacement()
+    }
+    console.log(`Marca: ${vehicles.trademark} // Modelo: ${vehicles.model} // ${other} // Precio: ${vehicles.getPrice()}`)
+})
+
+signal()
+
+//Price Order
+var order=vehicles.sort(function (a, b) {
+    if (a.price < b.price) {
+      return 1;
+    }
+    if (a.price > b.price) {
+      return -1;
+    }
+    // a must be equal to b
+    return 0;
+  });
+
+//Most Xpensive
+  console.log(`Vehículo más caro:    ${order[1].trademark} ${order[1].model}`)
+//Cheaper
+  console.log(`Vehículo más barato:  ${order[order.length-1].trademark} ${order[order.length-1].model}`)
+
+signal()
+
+//Showing Price Order Inventory
+order.forEach(function(order){
+    console.log(`${order.trademark} ${order.model}`)
+})
