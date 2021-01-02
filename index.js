@@ -92,7 +92,16 @@ var order=vehicles.sort(function (a, b) {
 //Cheaper
   console.log(`Vehículo más barato:  ${order[order.length-1].trademark} ${order[order.length-1].model}`)
 
+//Searching for Letter
+vehicles.forEach(function(vehicles){
+    if (vehicles.model.indexOf("Y") != -1){
+        console.log(`Vehículo que contiene en el modelo la letra ‘Y’: ${vehicles.trademark} ${vehicles.model} ${vehicles.getPrice()}`)
+    }
+})
+
 signal()
+
+  console.log("Vehículos ordenados por precio de mayor a menor:")
 
 //Showing Price Order Inventory
 order.forEach(function(order){
