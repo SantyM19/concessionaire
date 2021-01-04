@@ -43,54 +43,59 @@
 // Object Array
   var vehicles=[car1,motorcycle1,car2,motorcycle2]
 
+//Price Order
+var order=vehicles.sort(function (a, b) {
+  if (a.price < b.price) {
+    return 1;
+  }
+  if (a.price > b.price) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
+
 //Signal 
   function signal(){
     console.log("=============================")
   }
 
-//Showing Inventory
-  vehicles.forEach(function(vehicles){
-    var other
-    if (vehicles.type==TYPE1) {
-        other = "Puertas: " + vehicles.doors + "       "
-    }
-    else{
-        other = "Cilindrada: " + vehicles.getDisplacement()
-    }
-    console.log(`Marca: ${vehicles.trademark} // Modelo: ${vehicles.model} // ${other} // Precio: ${vehicles.getPrice()}`)
-  })
+//SHOW
+  function show(){
+    //Showing Inventory
+      vehicles.forEach(function(vehicles){
+        var other
+        if (vehicles.type==TYPE1) {
+          other = "Puertas: " + vehicles.doors + "       "
+        }
+        else{
+          other = "Cilindrada: " + vehicles.getDisplacement()
+        }
+        console.log(`Marca: ${vehicles.trademark} // Modelo: ${vehicles.model} // ${other} // Precio: ${vehicles.getPrice()}`)
+      })
 
-  signal()
+    signal()
 
-//Price Order
-  var order=vehicles.sort(function (a, b) {
-    if (a.price < b.price) {
-      return 1;
-    }
-    if (a.price > b.price) {
-      return -1;
-    }
-    // a must be equal to b
-    return 0;
-  });
+    //Most Xpensive
+      console.log(`Vehículo más caro:    ${order[1].trademark} ${order[1].model}`)
+    //Cheaper
+      console.log(`Vehículo más barato:  ${order[order.length-1].trademark} ${order[order.length-1].model}`)
 
-//Most Xpensive
-  console.log(`Vehículo más caro:    ${order[1].trademark} ${order[1].model}`)
-//Cheaper
-  console.log(`Vehículo más barato:  ${order[order.length-1].trademark} ${order[order.length-1].model}`)
+    //Searching for Letter
+      vehicles.forEach(function(vehicles){
+        if (vehicles.model.indexOf("Y") != -1){
+          console.log(`Vehículo que contiene en el modelo la letra ‘Y’: ${vehicles.trademark} ${vehicles.model} ${vehicles.getPrice()}`)
+        }
+      })
 
-//Searching for Letter
-  vehicles.forEach(function(vehicles){
-    if (vehicles.model.indexOf("Y") != -1){
-        console.log(`Vehículo que contiene en el modelo la letra ‘Y’: ${vehicles.trademark} ${vehicles.model} ${vehicles.getPrice()}`)
-    }
-  })
+    signal()
 
-  signal()
+    console.log("Vehículos ordenados por precio de mayor a menor:")
 
-  console.log("Vehículos ordenados por precio de mayor a menor:")
+    //Showing Price Order Inventory
+      order.forEach(function(order){
+        console.log(`${order.trademark} ${order.model}`)
+      })
+  }
 
-//Showing Price Order Inventory
-  order.forEach(function(order){
-    console.log(`${order.trademark} ${order.model}`)
-  })
+  show()
