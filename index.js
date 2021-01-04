@@ -1,23 +1,8 @@
-/*
-Marca: Peugeot // Modelo: 206 // Puertas: 4 // Precio: $200.000,00
-Marca: Honda // Modelo: Titan // Cilindrada: 125cc // Precio: $60.000,00
-Marca: Peugeot // Modelo: 208 // Puertas: 5 // Precio: $250.000,00
-Marca: Yamaha // Modelo: YBR // Cilindrada: 160cc // Precio: $80.500,50
-=============================
-Vehículo más caro: Peugeot 208
-Vehículo más barato: Honda Titan
-Vehículo que contiene en el modelo la letra ‘Y’: Yamaha YBR $80.500,50
-=============================
-Vehículos ordenados por precio de mayor a menor:
-Peugeot 208
-Peugeot 206
-Yamaha YBR
-Honda Titan
-*/
+// Class 
 
-class vehicle{
+  class vehicle{
     constructor(type,trademark,model,price){
-        this.type = type                                 //Type Vehicle
+        this.type = type                                 // Type Vehicle
         this.trademark = trademark  
         this.model=model
         this.price=price
@@ -25,16 +10,18 @@ class vehicle{
     getPrice(){
         return`$ ${this.price}`
     }
-}
+  }
 
-class car extends vehicle{
+// Inhetirance
+
+  class car extends vehicle{
     constructor(type,trademark,model,doors,price){
         super(type,trademark,model,price)                // Inhetirance
         this.doors=doors                                 // New attribute
     }
-}
+  }
 
-class motorcycle extends vehicle{
+  class motorcycle extends vehicle{
     constructor(type,trademark,model,displacement,price){
         super(type,trademark,model,price)                // Inhetirance
         this.displacement=displacement                   // New attribute
@@ -43,26 +30,26 @@ class motorcycle extends vehicle{
     getDisplacement(){
         return`${this.displacement}cc`
     }
-}
+  }
 
-const TYPE1="car"
-const TYPE2="motorcycle"
+  const TYPE1="car"
+  const TYPE2="motorcycle"
 
-var car1= new car( TYPE1,"Peugeot","206  ", 4 ,200000.00)
-var motorcycle1 = new motorcycle(TYPE2,"Honda  ","Titan",125 ,60000.00)
-var car2= new car( TYPE1,"Peugeot","208  ", 5 ,250000.00)
-var motorcycle2 = new motorcycle(TYPE2,"Yamaha ","YBR  ",160 ,80500.50)
+  var car1= new car( TYPE1,"Peugeot","206  ", 4 ,200000.00)
+  var motorcycle1 = new motorcycle(TYPE2,"Honda  ","Titan",125 ,60000.00)
+  var car2= new car( TYPE1,"Peugeot","208  ", 5 ,250000.00)
+  var motorcycle2 = new motorcycle(TYPE2,"Yamaha ","YBR  ",160 ,80500.50)
 
 // Object Array
-var vehicles=[car1,motorcycle1,car2,motorcycle2]
+  var vehicles=[car1,motorcycle1,car2,motorcycle2]
 
 //Signal 
-function signal(){
+  function signal(){
     console.log("=============================")
-}
+  }
 
 //Showing Inventory
-vehicles.forEach(function(vehicles){
+  vehicles.forEach(function(vehicles){
     var other
     if (vehicles.type==TYPE1) {
         other = "Puertas: " + vehicles.doors + "       "
@@ -71,12 +58,12 @@ vehicles.forEach(function(vehicles){
         other = "Cilindrada: " + vehicles.getDisplacement()
     }
     console.log(`Marca: ${vehicles.trademark} // Modelo: ${vehicles.model} // ${other} // Precio: ${vehicles.getPrice()}`)
-})
+  })
 
-signal()
+  signal()
 
 //Price Order
-var order=vehicles.sort(function (a, b) {
+  var order=vehicles.sort(function (a, b) {
     if (a.price < b.price) {
       return 1;
     }
@@ -93,17 +80,17 @@ var order=vehicles.sort(function (a, b) {
   console.log(`Vehículo más barato:  ${order[order.length-1].trademark} ${order[order.length-1].model}`)
 
 //Searching for Letter
-vehicles.forEach(function(vehicles){
+  vehicles.forEach(function(vehicles){
     if (vehicles.model.indexOf("Y") != -1){
         console.log(`Vehículo que contiene en el modelo la letra ‘Y’: ${vehicles.trademark} ${vehicles.model} ${vehicles.getPrice()}`)
     }
-})
+  })
 
-signal()
+  signal()
 
   console.log("Vehículos ordenados por precio de mayor a menor:")
 
 //Showing Price Order Inventory
-order.forEach(function(order){
+  order.forEach(function(order){
     console.log(`${order.trademark} ${order.model}`)
-})
+  })
