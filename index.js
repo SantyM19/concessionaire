@@ -44,16 +44,16 @@
   var vehicles=[car1,motorcycle1,car2,motorcycle2]
 
 //Price Order
-var order=vehicles.sort(function (a, b) {
-  if (a.price < b.price) {
-    return 1;
-  }
-  if (a.price > b.price) {
-    return -1;
-  }
-  // a must be equal to b
-  return 0;
-});
+  var order=vehicles.sort(function (a, b) {
+    if (a.price < b.price) {
+      return 1;
+    }
+    if (a.price > b.price) {
+      return -1;
+    }
+    // a must be equal to b
+    return 0;
+  });
 
 //Signal 
   function signal(){
