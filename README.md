@@ -19,6 +19,8 @@ It's an admission  OnReady's test
 You need to enter in this link @https://santym19.github.io/concessionaire/ then you should go 
 to browser's developer Tools, in to the console, in this case, you can saw the solution, also you can to use this function "show()" and see the solution.
 
-On the other hand you can to clone this repository and try with the html in the Browser
+On the other hand you can to clone this repository and try with the html in the Browser.
+
+You can also to see this solution in you environment if you have node.js, you only need yo write in your terminal "node index.js", remember you need to have cloner this repositoey and to be in this directory.
 
 ###End
